@@ -9,22 +9,18 @@ public class HomeWorkApp {
         compareNumbers();
     }
 
-    static private void printThreeWords()
-    {
-        System.out.println("_Orange\n"
-                +"_Banana\n"
-                +"_Apple");
+    static private void printThreeWords() {
+        System.out.println("_Orange\n_Banana\n_Apple");
     }
 
-    static private void checkSumSign()
-    {
+    static private void checkSumSign() {
         int a = 5;
         int b = -18;
         String answer = (a + b) > 0 ? "Сумма положительная" : "Сумма отрицательная";
         System.out.println(answer);
     }
-    static private void printColor()
-    {
+
+    static private void printColor() {
         int value = 123;
         if(value <= 0)
             System.out.println("Красный");
@@ -34,8 +30,7 @@ public class HomeWorkApp {
             System.out.println("Зеленый");
     }
 
-    static private void compareNumbers()
-    {
+    static private void compareNumbers() {
         int a = 5;
         int b = 18;
         String answer = (a >= b) ? "a >= b" : "a < b";
