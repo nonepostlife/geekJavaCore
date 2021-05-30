@@ -7,12 +7,8 @@ public class Treadmill implements Barrier{
         this.distance = distance;
     }
 
-    public float getDistance() {
-        return distance;
-    }
-
     @Override
-    public void overcome(String name, float inDistance) {
-        System.out.printf("%s пробежал на беговой дорожке %.3fkm\n", name, inDistance);
+    public void overcome(Character c) {
+        c.run(distance);
     }
 }

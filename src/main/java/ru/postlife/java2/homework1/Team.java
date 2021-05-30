@@ -20,10 +20,11 @@ public class Team {
     public void info(){
         System.out.println("Участники команды " + teamName + ":");
         for (Character c : characters) {
-            System.out.println(((Human)c).getName());
+            System.out.printf("%s [ Max distance: %.3fkm, Max height: %.3fkm]\n", ((Human)c).getName(), ((Human) c).getMaxDistanceRun(), ((Human) c).getMaxHeightJump());
         }
     }
     public void showResult(){
+        System.out.println("Результаты прохождения испытаний командой " + teamName);
         for (Character c : characters) {
             System.out.printf("%s - прошел дистанцию %b \n",((Human)c).getName(), ((Human)c).isOvercome());
         }

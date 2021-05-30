@@ -19,35 +19,25 @@ public class Cat implements Character {
     }
 
     @Override
-    public void run(Barrier b) {
-        if (b instanceof Treadmill) {
-            if (isOvercome) {
-                Treadmill treadmill = (Treadmill) b;
-                if (maxDistanceRun > treadmill.getDistance()) {
-                    b.overcome(name, treadmill.getDistance());
-                } else {
-                    System.out.printf("%s не смог пробежать %.3fkm [ Max distance: %.3fkm]\n", name, treadmill.getDistance(), maxDistanceRun);
-                    isOvercome = false;
-                }
+    public void run(float distance) {
+        if (isOvercome) {
+            if (distance < maxDistanceRun) {
+                System.out.printf("%s пробежал на беговой дорожке %.3fkm\n", name, distance);
             } else {
-                System.out.println(name + " снят с дистанции");
+                System.out.printf("%s не смог пробежать %.3fkm [ Max distance: %.3fkm]. Снят с испытаний\n", name, distance, maxDistanceRun);
+                isOvercome = false;
             }
         }
     }
 
     @Override
-    public void jump (Barrier b){
-        if (b instanceof Wall) {
-            if(isOvercome) {
-                Wall wall = (Wall) b;
-                if (maxHeightJump > wall.getHeight()) {
-                    b.overcome(name, wall.getHeight());
-                } else {
-                    System.out.printf("%s не смог перепрыгунть стену высотой %.3fm [ Max height: %.3fm]\n", name, wall.getHeight(), maxHeightJump);
-                    isOvercome = false;
-                }
+    public void jump(float height) {
+        if (isOvercome) {
+            if (height < maxHeightJump) {
+                System.out.printf("%s перепрыгнул через препятствие %.3fkm\n", name, height);
             } else {
-                System.out.println(name + " снят с дистанции");
+                System.out.printf("%s не смог перепрыгнуть через препятствие %.3fkm [ Max height: %.3fkm]. Снят с испытаний\n", name, height, maxHeightJump);
+                isOvercome = false;
             }
         }
     }

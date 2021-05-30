@@ -7,13 +7,8 @@ public class Wall implements Barrier{
         this.height = height;
     }
 
-    public float getHeight() {
-        return height;
-    }
-
     @Override
-    public void overcome(String name, float inHeight) {
-        System.out.printf("%s перепрыгнул через стену %.3fm\n", name, inHeight);
+    public void overcome(Character c) {
+        c.jump(height);
     }
 }
-

@@ -2,32 +2,33 @@ package ru.postlife.java2.homework1;
 
 public class HomeWorkApp1 {
     public static void main(String[] args) {
-        Character[] characters = {
-                new Cat("Барсик"),
-                new Human("Боб"),
-                new Robot("XZ-02M")
-        };
 
         Barrier[] barriers = {
-                new Wall((float) Math.random() * 2.2f),
-                new Treadmill((float) Math.random() * 5f + 1)
+                new Treadmill((float) Math.random() * 5.f),
+                new Wall((float) Math.random() + 0.75f),
+                new Treadmill( (float) Math.random() + 1.25f)
         };
 
-        for (Character c : characters) {
+        Character[] characters = {
+                new Human("Bob"),
+                new Cat("Barsik"),
+                new Human("John"),
+                new Robot("XZ-2s")
+        };
+
+        for (Character c : characters){
             for (Barrier b : barriers){
-                c.run(b);
-                c.jump(b);
+                b.overcome(c);
             }
         }
 
-        System.out.println();
-        System.out.println();
+        System.out.println("\n\n");
 
         Team team = new Team("BestTeam", "Bob", "Sam", "Ken", "Frank");
         Course course = new Course(barriers);
 
         team.info();
-        course.dolt(team);
+        course.doIt(team);
         team.showResult();
     }
 }
