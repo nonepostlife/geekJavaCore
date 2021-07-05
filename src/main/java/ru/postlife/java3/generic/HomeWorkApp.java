@@ -57,7 +57,7 @@ public class HomeWorkApp {
         array[secondIndex] = temp;
     }
 
-    public static <T> ArrayList<T> createListFromArray(T[] array) {
+    public static <T> List<T> createListFromArray(T[] array) {
         return new ArrayList<>(Arrays.asList(array));
     }
 }
