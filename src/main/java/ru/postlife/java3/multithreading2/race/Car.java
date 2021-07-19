@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
-    private static boolean isWinner;
+    private static volatile boolean isWinner;
     private static Lock lock;
 
     static {
@@ -40,7 +40,7 @@ public class Car implements Runnable {
             System.out.println(this.name + " готовится");
             Thread.sleep(500 + (int) (Math.random() * 800));
             System.out.println(this.name + " готов");
-            MainClass.cyclicBarrier.await();
+            MainClass.getCyclicBarrier().await();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class Car implements Runnable {
             lock.unlock();
         }
         try {
-            MainClass.cyclicBarrier.await();
+            MainClass.getCyclicBarrier().await();
         } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }

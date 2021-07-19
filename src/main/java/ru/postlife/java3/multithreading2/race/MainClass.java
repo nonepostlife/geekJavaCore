@@ -5,7 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 
 public class MainClass {
     public static final int CARS_COUNT = 4;
-    public static CyclicBarrier cyclicBarrier;
+    private static CyclicBarrier cyclicBarrier;
 
     public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
         cyclicBarrier = new CyclicBarrier(CARS_COUNT + 1);
@@ -22,6 +22,10 @@ public class MainClass {
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
         cyclicBarrier.await();
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
+    }
+
+    public static CyclicBarrier getCyclicBarrier() {
+        return cyclicBarrier;
     }
 }
 
