@@ -26,16 +26,13 @@ public class SomeMethodsApp {
         int countOne = 0;
         int countFour = 0;
         for (int j : array) {
-            if (j != 1) {
-                if (j != 4) {
-                    return false;
-                }
-            }
             if (j == 1) {
                 countOne++;
-                continue;
+            } else if (j == 4) {
+                countFour++;
+            } else {
+                return false;
             }
-            countFour++;
         }
         return countOne > 0 && countFour > 0;
     }
