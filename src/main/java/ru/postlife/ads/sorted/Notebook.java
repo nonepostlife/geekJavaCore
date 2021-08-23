@@ -17,9 +17,9 @@ public class Notebook implements Comparable<Notebook> {
     @Override
     public String toString() {
         return "Notebook{" +
-                "brand='" + brand + '\'' +
-                ", ram=" + ram +
-                ", price=" + price +
+                "brand ='" + brand + '\'' +
+                ", ram =" + ram +
+                ", price =" + price +
                 '}';
     }
 

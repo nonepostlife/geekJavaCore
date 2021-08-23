@@ -9,7 +9,7 @@ public class MainApp {
     private static final Random RANDOM = new Random();
 
     public static void main(String[] args) {
-        int count = 500;
+        int count = 5000;
         Notebook[] notebooks = new Notebook[count];
 
         for (int i = 0; i < count; i++) {
