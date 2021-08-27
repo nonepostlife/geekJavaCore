@@ -1,6 +1,6 @@
-package ru.postlife.ads.hw1;
+package ru.postlife.ads.lesson2;
 
-import ru.postlife.ads.hw1.sort.InsertionSort;
+import ru.postlife.ads.lesson2.sort.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Random;

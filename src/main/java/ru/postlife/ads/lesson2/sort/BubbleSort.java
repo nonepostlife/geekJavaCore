@@ -1,6 +1,6 @@
-package ru.postlife.ads.hw1.sort;
+package ru.postlife.ads.lesson2.sort;
 
-import ru.postlife.ads.hw1.Notebook;
+import ru.postlife.ads.lesson2.Notebook;
 
 public class BubbleSort {
     public static void sort(Notebook[] arr) {

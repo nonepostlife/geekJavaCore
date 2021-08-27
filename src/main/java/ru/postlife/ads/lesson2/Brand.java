@@ -1,4 +1,4 @@
-package ru.postlife.ads.hw1;
+package ru.postlife.ads.lesson2;
 
 public enum Brand {
     LENUVO(4),
