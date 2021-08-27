@@ -1,4 +1,6 @@
-package ru.postlife.ads.sorted;
+package ru.postlife.ads.hw1.sort;
+
+import ru.postlife.ads.hw1.Notebook;
 
 public class InsertionSort {
     public static void sort(Notebook[] arr){
