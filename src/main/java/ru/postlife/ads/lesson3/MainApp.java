@@ -11,38 +11,38 @@ public class MainApp {
 
     private static void deque() {
         Deque<Integer> dequeue = new DequeueImpl<>(5);
-        dequeue.insertLeft(0);
-        dequeue.insertLeft(4);
-        dequeue.insertRight(1);
-        dequeue.insertRight(2);
-        dequeue.insertRight(3);
-        dequeue.insertRight(4);
-        dequeue.insertRight(5);
+        dequeue.insertFirst(0);
+        dequeue.insertFirst(4);
+        dequeue.insertLast(1);
+        dequeue.insertLast(2);
+        dequeue.insertLast(3);
+        dequeue.insertLast(4);
+        dequeue.insertLast(5);
         dequeue.display();
 
-        dequeue.removeLeft();
-        dequeue.removeLeft();
+        dequeue.removeFirst();
+        dequeue.removeFirst();
         dequeue.display();
 
-        dequeue.removeRight();
-        System.out.println(dequeue.peekBack());
-        System.out.println(dequeue.peekFront());
+        dequeue.removeLast();
+        System.out.println(dequeue.peekLast());
+        System.out.println(dequeue.peekFirst());
         dequeue.display();
 
-        dequeue.insertLeft(7);
-        dequeue.insertLeft(7);
-        dequeue.insertLeft(7);
+        dequeue.insertFirst(7);
+        dequeue.insertFirst(7);
+        dequeue.insertFirst(7);
         dequeue.display();
 
-        dequeue.removeRight();
-        dequeue.removeRight();
-        dequeue.removeRight();
-        dequeue.removeRight();
-        dequeue.removeRight();
+        dequeue.removeLast();
+        dequeue.removeLast();
+        dequeue.removeLast();
+        dequeue.removeLast();
+        dequeue.removeLast();
         dequeue.display();
 
-        dequeue.insertLeft(1);
-        dequeue.insertLeft(2);
+        dequeue.insertFirst(1);
+        dequeue.insertFirst(2);
         dequeue.display();
     }
 

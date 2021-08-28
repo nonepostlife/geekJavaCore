@@ -11,18 +11,18 @@ public class LinkedQueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public boolean insertRight(E value) {
+    public boolean insertLast(E value) {
         data.insertLast(value);
         return true;
     }
 
     @Override
-    public E removeLeft() {
+    public E removeFirst() {
         return data.removeFirst();
     }
 
     @Override
-    public E peekFront() {
+    public E peekFirst() {
         return data.getFirst();
     }
 

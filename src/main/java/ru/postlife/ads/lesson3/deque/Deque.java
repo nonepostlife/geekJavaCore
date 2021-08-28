@@ -4,7 +4,7 @@ import ru.postlife.ads.lesson3.queue.Queue;
 
 public interface Deque<E> extends Queue<E> {
 
-    boolean insertLeft(E value);
-    E removeRight();
-    E peekBack();
+    boolean insertFirst(E value);
+    E removeLast();
+    E peekLast();
 }

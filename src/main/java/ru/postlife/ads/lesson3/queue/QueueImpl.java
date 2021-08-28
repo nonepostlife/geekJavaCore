@@ -17,7 +17,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public boolean insertRight(E value) {
+    public boolean insertLast(E value) {
         if (isFull()) {
             return false;
         }
@@ -27,7 +27,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public E removeLeft() {
+    public E removeFirst() {
         if (isEmpty()) {
             return null;
         }
@@ -37,7 +37,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public E peekFront() {
+    public E peekFirst() {
         return data[head];
     }
 

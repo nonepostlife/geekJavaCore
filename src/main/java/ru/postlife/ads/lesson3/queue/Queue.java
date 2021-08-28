@@ -2,11 +2,11 @@ package ru.postlife.ads.lesson3.queue;
 
 public interface Queue<E> {
 
-    boolean insertRight(E value);
+    boolean insertLast(E value);
 
-    E removeLeft();
+    E removeFirst();
 
-    E peekFront();
+    E peekFirst();
 
     int size();
 
