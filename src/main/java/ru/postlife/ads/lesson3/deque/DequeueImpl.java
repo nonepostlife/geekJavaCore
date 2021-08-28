@@ -1,24 +1,44 @@
-package ru.postlife.ads.lesson3.queue;
+package ru.postlife.ads.lesson3.deque;
 
-public class QueueImpl<E> implements Queue<E> {
+public class DequeueImpl<E> implements Deque<E> {
 
-    protected final E[] data;
+    private final E[] data;
+    private int size;
+
     private final int HEAD_DEFAULT = 0;
     private final int TAIL_DEFAULT = -1;
-    protected int size;
 
-    protected int tail;
-    protected int head;
+    private int tail;
+    private int head;
 
-    public QueueImpl(int maxSize) {
+    public DequeueImpl(int maxSize) {
         this.data = (E[]) new Object[maxSize];
-        head = HEAD_DEFAULT;
         tail = TAIL_DEFAULT;
+        head = HEAD_DEFAULT;
+    }
+
+    @Override
+    public boolean insertLeft(E value) {
+        if (isFull()) {
+            return false;
+        }
+        if (head == 0 && isEmpty()) {
+            data[head] = value;
+            size++;
+            tail++;
+            return true;
+        }
+        if (head != 0) {
+            data[--head] = value;
+            size++;
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean insertRight(E value) {
-        if (isFull()) {
+        if (isFull() || tail == data.length - 1) {
             return false;
         }
         data[++tail] = value;
@@ -37,8 +57,23 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
+    public E removeRight() {
+        if (isEmpty()) {
+            return null;
+        }
+        E value = data[tail--];
+        size--;
+        return value;
+    }
+
+    @Override
     public E peekFront() {
         return data[head];
+    }
+
+    @Override
+    public E peekBack() {
+        return data[tail];
     }
 
     @Override
@@ -63,7 +98,7 @@ public class QueueImpl<E> implements Queue<E> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("--> [");
+        StringBuilder sb = new StringBuilder("[");
         for (int i = head; i <= tail; i++) {
             sb.append(data[i]);
             if (i != tail) {

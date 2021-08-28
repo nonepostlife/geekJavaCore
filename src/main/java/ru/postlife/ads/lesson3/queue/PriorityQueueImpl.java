@@ -10,7 +10,7 @@ public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue
     }
 
     @Override
-    public boolean insert(E value) {
+    public boolean insertRight(E value) {
         if (isFull()) {
             return false;
         }
@@ -30,7 +30,7 @@ public class PriorityQueueImpl<E extends Comparable<? super E>> implements Queue
     }
 
     @Override
-    public E remove() {
+    public E removeLeft() {
         return isEmpty() ? null : data[--size];
     }
 

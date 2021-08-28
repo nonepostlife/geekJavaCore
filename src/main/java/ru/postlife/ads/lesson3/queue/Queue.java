@@ -2,9 +2,9 @@ package ru.postlife.ads.lesson3.queue;
 
 public interface Queue<E> {
 
-    boolean insert(E value);
+    boolean insertRight(E value);
 
-    E remove();
+    E removeLeft();
 
     E peekFront();
 
