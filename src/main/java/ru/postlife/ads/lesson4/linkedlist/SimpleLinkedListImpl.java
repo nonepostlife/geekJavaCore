@@ -1,6 +1,11 @@
 package ru.postlife.ads.lesson4.linkedlist;
 
-public class SimpleLinkedListImpl<E> implements LinkedList<E> {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class SimpleLinkedListImpl<E> implements LinkedList<E>, Iterable<E> {
 
     protected Node<E> firstElement;
     protected int size;
@@ -102,5 +107,30 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
 
     protected E getValue(Node<E> eNode) {
         return eNode != null ? eNode.item : null;
+    }
+
+    @NotNull
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<E> {
+        Node<E> currentNode = firstElement;
+
+        @Override
+        public boolean hasNext() {
+            return currentNode != null;
+        }
+
+        @Override
+        public E next() {
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Node<E> prev = currentNode;
+            currentNode = currentNode.next;
+            return prev.item;
+        }
     }
 }
