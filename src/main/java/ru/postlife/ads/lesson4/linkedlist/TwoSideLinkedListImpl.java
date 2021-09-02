@@ -6,15 +6,22 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
 
     @Override
     public void insertFirst(E value) {
-        super.insertFirst(value);
-        if (size == 1) {
-            lastElement = firstElement;
+        if (isEmpty()) {
+            super.insertFirst(value);
+            if (size == 1) {
+                lastElement = firstElement;
+            }
+        } else {
+            Node<E> newNode = new Node<>(value, firstElement);
+            firstElement.previous = newNode;
+            firstElement = newNode;
+            size++;
         }
     }
 
     @Override
     public void insertLast(E value) {
-        Node<E> newNode = new Node<>(value, null);
+        Node<E> newNode = new Node<>(value, null, lastElement);
 
         if (isEmpty()) {
             insertFirst(value);
@@ -24,6 +31,24 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
         lastElement.next = newNode;
         lastElement = newNode;
         size++;
+    }
+
+    @Override
+    public E removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+        Node<E> removedNode = lastElement;
+        lastElement = removedNode.previous;
+        lastElement.next = null;
+        removedNode.previous = null;
+        size--;
+
+        if (isEmpty()) {
+            lastElement = null;
+        }
+
+        return removedNode.item;
     }
 
     @Override
