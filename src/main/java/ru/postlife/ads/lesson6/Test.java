@@ -4,10 +4,12 @@ public class Test {
     public static void main(String[] args) {
 
         Tree<Integer> tree = new TreeImpl<>();
+        System.out.println(tree.isEmpty());
 
         tree.add(60);
         tree.add(50);
-//        tree.add(66);
+        tree.display();
+        System.out.println("level: " + tree.getLevel());
         tree.add(40);
         tree.add(55);
         tree.add(70);
@@ -19,7 +21,10 @@ public class Test {
         tree.add(67);
         tree.add(68);
         tree.add(81);
+        tree.display();
+        System.out.println("level: " + tree.getLevel());
 
+        System.out.println(tree.isEmpty());
         System.out.println("Find 70: " + tree.contains(70));
         System.out.println("Find 700: " + tree.contains(700));
 
