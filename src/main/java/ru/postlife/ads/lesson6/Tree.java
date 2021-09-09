@@ -2,6 +2,8 @@ package ru.postlife.ads.lesson6;
 
 public interface Tree<E extends Comparable<? super E>> {
 
+    Node<E> getRoot();
+
     enum TraversMode {
         IN_ORDER, PRE_ORDER, POST_ORDER
     }
@@ -19,4 +21,10 @@ public interface Tree<E extends Comparable<? super E>> {
     void display();
 
     void traverse(TraversMode mode);
+
+    int getLevel();
+
+    int getMaxLevel();
+
+    boolean isBalanced(Node<E> node);
 }
