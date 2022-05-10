@@ -1,10 +1,13 @@
 package ru.postlife.ads.lesson7;
 
+import java.util.Queue;
+import java.util.Stack;
+
 public interface Graph {
 
     void addVertex(String label);
 
-    boolean addEdge(String startLabel, String secondLabel, String... others);
+    boolean addEdge(String startLabel, String secondLabel, int length);
 
     int getSize();
 
@@ -20,6 +23,6 @@ public interface Graph {
      */
     void bfs(String startLabel);
 
-//    Stack<String> findShortPathViaBfs(String startLabel, String finishLabel);
+    Stack<String> findShortPathViaBfs(String startLabel, String finishLabel);
 
 }
