@@ -1,44 +1,18 @@
 package ru.postlife.hibernate.dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import ru.postlife.hibernate.model.Student;
-import ru.postlife.hibernate.utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class StudentDao {
+public interface StudentDao {
 
-    public List<Student> findAll() {
-        List<Student> users = (List<Student>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Student").list();
-        return users;
-    }
+    List<Student> findAll();
 
-    public Student findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Student.class, id);
-    }
+    Student findById(int id);
 
-    public void save(Student student) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(student);
-        tx1.commit();
-        session.close();
-    }
+    void save(Student student);
 
-    public void update(Student student) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.update(student);
-        tx1.commit();
-        session.close();
-    }
+    void update(Student student);
 
-    public void delete(Student student) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.delete(student);
-        tx1.commit();
-        session.close();
-    }
+    void delete(Student student);
 }

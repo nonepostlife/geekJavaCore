@@ -2,10 +2,11 @@ package ru.postlife.hibernate;
 
 import ru.postlife.hibernate.model.Student;
 import ru.postlife.hibernate.services.StudentService;
+import ru.postlife.hibernate.services.StudentServiceImpl;
 
 public class HibernateApp {
     public static void main(String[] args) {
-        StudentService userService = new StudentService();
+        StudentService userService = new StudentServiceImpl();
 
         int COUNT = 1000;
         for (int i = 0; i < COUNT; i++) {
